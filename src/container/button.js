@@ -2,7 +2,7 @@ import React from 'react';
 import {HeaderButton} from 'react-navigation-header-buttons'
 import {Ionicons} from '@expo/vector-icons'
 
-const Header = (props)=>{
+const HeaderNavigationButton = (props)=>{
     return(
         <HeaderButton
         {...props}
@@ -13,4 +13,4 @@ const Header = (props)=>{
     )
 }
 
-export default Header;
+export default HeaderNavigationButton;

@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {View,Text,StyleSheet,Image} from 'react-native';
-
+import {HeaderButtons, Item} from 'react-navigation-header-buttons'
+import Header from '../../container/button';
 const Home = (props)=>{
     return(
            <View style={styles.container}>
@@ -10,6 +11,15 @@ const Home = (props)=>{
             <View style={styles.img4}></View>
            </View>
     )
+}
+
+Home.navigationOptions = (propsData)=>{
+    return{
+        headerTitle:"Rent",
+        headerLeft: <HeaderButtons HeaderButtonComponent={Header}>
+            <Item title="bar" iconName="ios-menu" onPress={()=>propsData.navigation.toggleDrawer()} />
+        </HeaderButtons>
+    }
 }
 
 const styles = StyleSheet.create({
