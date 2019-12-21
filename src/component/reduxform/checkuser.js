@@ -3,12 +3,19 @@ import {View,AsyncStorage} from 'react-native';
 
 
 const Check = (props)=>{
-       let currentUser = AsyncStorage.getItem('jwtToken');
-       if(currentUser){
-           props.navigation.navigate({routeName:"home"})
+       let currentUser ;
+       AsyncStorage.getItem('jwtToken')
+         .then(res=>currentUser = res)
+         .catch(err=>console.log(err))
+         
+       if(!currentUser){
+          return props.navigation.navigate({routeName:"login"})
        }else{
-           props.navigation.navigate({routeName:"login"});
+           return props.navigation.navigate({routeName:"home"});
        }
+       return(
+           <View></View>
+       )
 }
 
 

@@ -10,7 +10,7 @@ export const newUser = (data)=>{
 }
 
 export const addUser = (data,types)=>{
-
+     console.log(data)
        return dispatch =>{
            return new Promise((resolve,reject)=>{
                axios.post(`https://renter-server.herokuapp.com/api/${types}`,data)

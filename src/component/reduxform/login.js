@@ -29,6 +29,7 @@ class Login extends Component{
         )
       }
      onSubmit (value){
+         
          this.setState({isLoad:true})
              this.props.addUser(value,"signin")
                  .then(res=>{this.setState({isLoad:false}) ; this.props.navigation.navigate({routeName:"home"})})
@@ -45,7 +46,7 @@ class Login extends Component{
          if(isRegister) {
           return(<Register changeLogin={this.changeLogin}/>)   
          }else{return(
-            <ImageBackground source={require('../../../assets/login.jpg')} style={{width: '100%', height: '100%'}}>
+            <ImageBackground source={require('./login.jpg')} style={{width: '100%', height: '100%'}}>
           
                 <View style={styles.container}>
                 <Field

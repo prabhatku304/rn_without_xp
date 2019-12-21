@@ -38,7 +38,7 @@ class Register extends React.Component {
       }
       render(){
       return(
-            <ImageBackground source={require('../../../assets/register.jpg')} style={{height:"100%",width:"100%",...styles.image}}>
+            <ImageBackground source={require('./register.jpg')} style={{height:"100%",width:"100%",...styles.image}}>
               <View style={styles.container}>
              
                 <Field 

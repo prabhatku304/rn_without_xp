@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import RentNavigation from './src/navigation/navigation/navigation'
+import RentNavigation from './src/navigation/navigation/navigation';
+import {Provider} from 'react-redux'
+import storeConfigure from './src/store'
+
+let store = storeConfigure(); 
 
 export default class App extends Component {
   render() {
     return (
+      <Provider store={store}>
      <RentNavigation />
+     </Provider>
     );
   }
 }
