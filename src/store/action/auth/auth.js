@@ -22,3 +22,10 @@ export const addUser = (data,types)=>{
            })
        }
 }
+
+export const logout = ()=>{
+    return dispatch =>{
+        dispatch(newUser({}));
+        AsyncStorage.clear();
+    }
+}
