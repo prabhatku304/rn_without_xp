@@ -7,7 +7,8 @@ import Home from '../../component/home/home';
 import RentPay from '../../component/payment/rentPay';
 import Check from '../../component/reduxform/checkuser';
 import Login from '../../component/reduxform/login';
-import Register from '../../component/reduxform/register'
+import Register from '../../component/reduxform/register';
+import Logout from '../../component/reduxform/logout'
 
 
 
@@ -19,7 +20,8 @@ const RentNavigation = createStackNavigator({
 
 const DrawerNavigator = createDrawerNavigator({
        home:{screen:RentNavigation},
-       pay:{screen:RentPay}
+       pay:{screen:RentPay},
+       logout :{screen:Logout}
 })
 
 const SwitchNavigator = createSwitchNavigator({

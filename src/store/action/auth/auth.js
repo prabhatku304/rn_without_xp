@@ -1,5 +1,6 @@
 import {SETUSER} from '../../actionTypes'
-import {AsyncStorage} from 'react-native'
+import {AsyncStorage} from 'react-native';
+import axios from 'axios'
 
 
 export const newUser = (data)=>{
@@ -25,7 +26,11 @@ export const addUser = (data,types)=>{
 
 export const logout = ()=>{
     return dispatch =>{
-        dispatch(newUser({}));
-        AsyncStorage.clear();
+        return new Promise((resolve,reject)=>{
+            dispatch(newUser({}));
+            AsyncStorage.clear();
+              resolve();
+        })
+        
     }
 }

@@ -7,7 +7,7 @@ const Check = (props)=>{
        AsyncStorage.getItem('jwtToken')
          .then(res=>currentUser = res)
          .catch(err=>console.log(err))
-         
+      console.log(currentUser)    
        if(!currentUser){
           return props.navigation.navigate({routeName:"login"})
        }else{
