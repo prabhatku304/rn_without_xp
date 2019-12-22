@@ -11,7 +11,8 @@ import Register from '../../component/reduxform/register';
 import Logout from '../../component/reduxform/logout'
 import { Ionicons } from '@expo/vector-icons';
 import Dashboard from '../../component/dashboard';
-import Profile from '../../component/profile/profile'
+import Profile from '../../component/profile/profile';
+import ChatRoom from '../../component/chatRoom/chat'
 
 
 const RentNavigation = createStackNavigator({
@@ -61,6 +62,10 @@ const DrawerNavigator = createDrawerNavigator({
        dashboard:{screen:DashboardNavigation,
                 navigationOptions:{
                      drawerIcon:(tab)=><Ionicons name="ios-paper" size={25} color={tab.tintColor} />
+                }},
+       Chat : {screen:ChatRoom,
+                navigationOptions:{
+                drawerIcon:(tab)=><Ionicons name="ios-chatboxes" size={25} color={tab.tintColor}/> 
                 }},
        logout :{screen:Logout,
                 navigationOptions:{

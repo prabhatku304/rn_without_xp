@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {Button,View,Text,StyleSheet,TextInput,TouchableOpacity} from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker';
+import Modal from './pay'
 
 import {connect} from 'react-redux';
 import {Ionicons} from '@expo/vector-icons'
@@ -12,16 +13,18 @@ class RentPay extends Component{
                 amount:null,
                 date:""
           ,
-            isCalender:false
+            isCalender:false,
+            modal:false
            
         }
 
     }
  
      Pay = () =>{
-        Rent(this.state,this.props.user_id)
-          .then(res=>alert("you have paid"))
-          .catch(err=>console.log(err));
+       this.setState({modal:true})
+        // Rent(this.state,this.props.user_id)
+        //   .then(res=>alert("you have paid"))
+        //   .catch(err=>console.log(err));
      }
     
 
@@ -70,6 +73,7 @@ class RentPay extends Component{
                />
 
                <TouchableOpacity style={styles.pay} onPress={this.Pay}><Text style={styles.paytm}>Pay with paytm</Text></TouchableOpacity>
+               <Modal modal={this.state.modal}/>
                <TouchableOpacity onPress={()=>this.props.navigation.navigate({routeName:"home"})} style={{paddingTop:30}}><Ionicons color="white" name="ios-menu" size={25}/></TouchableOpacity>
              </View>
              </View>
