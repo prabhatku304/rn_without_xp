@@ -13,15 +13,11 @@ class Pay extends React.Component{
             expYear:null,
             cvc: '',
             name: '',
+            modal:false
             
         }
     }
-    componentDidMount(){
-        // Stripe.setOptionsAsync({
-        //     publishableKey:"pk_test_EcDcCoAGVRMU3RPq8ZY6Xyri",
-        //     androidPayMode:'test'
-        // })
-    }
+    
 
     render(){
         return(
@@ -30,11 +26,11 @@ class Pay extends React.Component{
                 animationType="slide"
                 transparent={false}
                 visible={this.props.modal === true}
-                onRequestClose={()=>this.props.modal===false}
+                onRequestClose={this.props.closeModal}
                 
                 >
-                    <Text>hello</Text>
-
+                    <Text >Hello</Text>
+                        
                 </Modal>
             </View>
         )

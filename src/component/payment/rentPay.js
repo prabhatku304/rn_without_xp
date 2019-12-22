@@ -35,6 +35,9 @@ class RentPay extends Component{
     hideCalender =()=>{
         this.setState({isCalender:false})
     }
+    closeModal = ()=>{
+      this.setState({modal:false})
+    }
 
     selectDate=(date)=>{
   
@@ -73,7 +76,7 @@ class RentPay extends Component{
                />
 
                <TouchableOpacity style={styles.pay} onPress={this.Pay}><Text style={styles.paytm}>Pay with paytm</Text></TouchableOpacity>
-               <Modal modal={this.state.modal}/>
+               <Modal modal={this.state.modal} closeModal={this.closeModal}/>
                <TouchableOpacity onPress={()=>this.props.navigation.navigate({routeName:"home"})} style={{paddingTop:30}}><Ionicons color="white" name="ios-menu" size={25}/></TouchableOpacity>
              </View>
              </View>
