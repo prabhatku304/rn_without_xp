@@ -10,7 +10,8 @@ import Login from '../../component/reduxform/login';
 import Register from '../../component/reduxform/register';
 import Logout from '../../component/reduxform/logout'
 import { Ionicons } from '@expo/vector-icons';
-import Dashboard from '../../component/dashboard'
+import Dashboard from '../../component/dashboard';
+import Profile from '../../component/profile/profile'
 
 
 const RentNavigation = createStackNavigator({
@@ -21,7 +22,9 @@ const RentNavigation = createStackNavigator({
 const DashboardNavigation = createStackNavigator({
        Dashboard:{screen:Dashboard}
 })
-
+const ProfileTab = createStackNavigator({
+       profile:{screen:Profile}
+})
 const Tabconfig = {
        Home:{screen:RentNavigation,
            navigationOptions:{
@@ -46,6 +49,11 @@ const DrawerNavigator = createDrawerNavigator({
               navigationOptions:{
                  drawerIcon:(tab)=><Ionicons name="ios-home" size={25} color={tab.tintColor}/>
               }},
+       Profile:{screen:ProfileTab,
+              navigationOptions:{
+                     drawerIcon:(tab)=><Ionicons name="ios-person" size={25} color={tab.tintColor} />
+              }
+       },
        Pay:{screen:RentPay,
             navigationOptions:{
                    drawerIcon:(tab)=><Ionicons name="ios-wallet" size={25} color={tab.tintColor} />

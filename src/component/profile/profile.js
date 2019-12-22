@@ -38,8 +38,8 @@ class Profile extends Component{
 Profile.navigationOptions = (propData)=>{
     return{
         headerTitle:"Profile",
-        headerLeft:<HeaderButtons HeaderComponentButton ={HeaderButton}>
-            <Item title="tab" iconName="ios-menu" onPress={()=>propData.navigation.toggleDrawer()} />
+        headerLeft:<HeaderButtons HeaderButtonComponent ={HeaderButton}>
+            <Item title="tabl" iconName="ios-menu" onPress={()=>propData.navigation.toggleDrawer()} />
         </HeaderButtons>
     }
 }
