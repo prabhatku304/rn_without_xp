@@ -7,7 +7,7 @@ import { connect } from 'http2';
 class Document extends React.Component{
         constructor(props){
             super(props);
-
+         this.handleSubmit = this.handleSubmit.bind(this);
         }
 
        async handleSubmit(){
