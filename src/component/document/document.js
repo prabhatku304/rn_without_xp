@@ -1,7 +1,7 @@
 import React from 'react';
 import {View,TouchableOpacity,Text,Button,StyleSheet} from 'react-native';
 import DocumentPicker from 'react-native-document-picker';
-import { connect } from 'http2';
+import { connect } from 'react-redux';
 
 
 class Document extends React.Component{
@@ -11,11 +11,13 @@ class Document extends React.Component{
         }
 
        async handleSubmit(){
+           console.log("hello")
            try{
                 let response = await DocumentPicker.pick({
                     type:[DocumentPicker.types.images]
                 })
-                console.log(response)
+                response.then(data=>console.log(data))
+                         .catch(err=>console.log(err))
            }catch(err){
                if(DocumentPicker.isCancel(err)){
 

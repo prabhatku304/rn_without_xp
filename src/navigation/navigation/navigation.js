@@ -12,7 +12,8 @@ import Logout from '../../component/reduxform/logout'
 import  Ionicons from 'react-native-vector-icons/Ionicons';
 import Dashboard from '../../component/dashboard';
 import Profile from '../../component/profile/profile';
-import ChatRoom from '../../component/chatRoom/chat'
+import ChatRoom from '../../component/chatRoom/chat';
+import DocumentId from '../../component/document/document'
 
 
 const RentNavigation = createStackNavigator({
@@ -63,6 +64,11 @@ const DrawerNavigator = createDrawerNavigator({
                 navigationOptions:{
                      drawerIcon:(tab)=><Ionicons name="ios-paper" size={25} color={tab.tintColor} />
                 }},
+       Document:{screen:DocumentId,
+                navigationOptions:{
+                       drawerIcon:(tab)=><Ionicons name="ios-document" size={25} color={tab.tintColor} />
+                } 
+                },
        Chat : {screen:ChatRoom,
                 navigationOptions:{
                 drawerIcon:(tab)=><Ionicons name="ios-chatboxes" size={25} color={tab.tintColor}/> 
