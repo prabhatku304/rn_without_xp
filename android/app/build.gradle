@@ -160,6 +160,7 @@ def jscFlavor = 'org.webkit:android-jsc:+'
 def enableHermes = project.ext.react.get("enableHermes", false);
 
 dependencies {
+    implementation project(':react-native-document-picker')
     implementation project(':react-native-vector-icons')
     compile (project(':tipsi-stripe')) {
         exclude group: 'com.google.android.gms'
