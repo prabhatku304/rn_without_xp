@@ -16,8 +16,7 @@ class Document extends React.Component{
                 let response = await DocumentPicker.pick({
                     type:[DocumentPicker.types.images]
                 })
-                response.then(data=>console.log(data))
-                         .catch(err=>console.log(err))
+                console.log(response)
            }catch(err){
                if(DocumentPicker.isCancel(err)){
 
