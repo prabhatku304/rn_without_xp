@@ -1,6 +1,7 @@
 import React from 'react';
 import {View,TouchableOpacity,Text,Button,StyleSheet} from 'react-native';
 import DocumentPicker from 'react-native-document-picker';
+import { connect } from 'http2';
 
 
 class Document extends React.Component{
@@ -27,7 +28,7 @@ class Document extends React.Component{
 
         render(){
             return(
-                <View>
+                <View style={styles.container}>
                     <TouchableOpacity onPress={this.handleSubmit}>
                         <Text>Upoad a Document</Text>
                     </TouchableOpacity>
@@ -36,3 +37,19 @@ class Document extends React.Component{
             )
         }
 }
+
+function mapStateToProps(state){
+    return{
+        id:state.set_user.user.id
+    }
+}
+
+const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        alignItems:"center",
+        justifyContent:"space-around"
+    }
+})
+
+export default connect(mapStateToProps,{})(Document)
