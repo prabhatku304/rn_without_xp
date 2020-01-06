@@ -28,7 +28,7 @@ export const logout = ()=>{
     return dispatch =>{
         return new Promise((resolve,reject)=>{
             dispatch(newUser({}));
-            AsyncStorage.clear();
+            AsyncStorage.removeItem('jwtToken',()=>{console.log("Deleted")});
               resolve();
         })
         

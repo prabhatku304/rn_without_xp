@@ -1,10 +1,11 @@
 import React,{Component} from 'react';
 import {Button,View,Text,StyleSheet,TextInput,TouchableOpacity} from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker';
-import Modal from './pay'
+
 
 import {connect} from 'react-redux';
 import {Ionicons} from '@expo/vector-icons'
+import CardFormScreen from './pay';
 class RentPay extends Component{
     constructor(props){
         super(props);
@@ -14,14 +15,14 @@ class RentPay extends Component{
                 date:""
           ,
             isCalender:false,
-            modal:false
+            isPay:false
            
         }
 
     }
  
      Pay = () =>{
-       this.setState({modal:true})
+       this.setState({isPay:true})
         // Rent(this.state,this.props.user_id)
         //   .then(res=>alert("you have paid"))
         //   .catch(err=>console.log(err));
@@ -52,8 +53,12 @@ class RentPay extends Component{
 
     render(){
      
-   
+      if(this.state.isPay){
         return(
+          <CardFormScreen />
+        )
+      }else{
+        return(  
             <View style={styles.container}>
               
               <View style={styles.rent}>
@@ -76,11 +81,11 @@ class RentPay extends Component{
                />
 
                <TouchableOpacity style={styles.pay} onPress={this.Pay}><Text style={styles.paytm}>Pay with paytm</Text></TouchableOpacity>
-               <Modal modal={this.state.modal} closeModal={this.closeModal}/>
                <TouchableOpacity onPress={()=>this.props.navigation.navigate({routeName:"home"})} style={{paddingTop:30}}><Ionicons color="white" name="ios-menu" size={25}/></TouchableOpacity>
              </View>
              </View>
         )
+      }
     }
 }
 

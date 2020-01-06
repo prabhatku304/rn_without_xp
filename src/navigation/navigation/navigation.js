@@ -9,7 +9,7 @@ import Check from '../../component/reduxform/checkuser';
 import Login from '../../component/reduxform/login';
 import Register from '../../component/reduxform/register';
 import Logout from '../../component/reduxform/logout'
-import { Ionicons } from '@expo/vector-icons';
+import  Ionicons from 'react-native-vector-icons/Ionicons';
 import Dashboard from '../../component/dashboard';
 import Profile from '../../component/profile/profile';
 import ChatRoom from '../../component/chatRoom/chat'
@@ -79,6 +79,7 @@ const DrawerNavigator = createDrawerNavigator({
 })
 
 const SwitchNavigator = createSwitchNavigator({
+       
        home:DrawerNavigator,
        login:Login,
        

@@ -14,8 +14,11 @@ class Profile extends Component{
     }
 
     componentDidMount(){
-        Axios.get(`https://renter-server.herokuapp.com/api/user/${this.props.id}`)
-             .then(res=>this.setState({user:res.data}))
+        console.log(this.props.id)
+        Axios.get('https://renter-server.herokuapp.com/api/user/5e0b9eb31a5e3c001779fe77')
+             .then(res=>{
+                console.log(res.data) 
+                this.setState({user:res.data})})
              .catch(err=>console.log(err))
     }
     render(){

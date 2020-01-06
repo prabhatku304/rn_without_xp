@@ -33,7 +33,7 @@ class Login extends Component{
          this.setState({isLoad:true})
              this.props.addUser(value,"signin")
                  .then(res=>{this.setState({isLoad:false}) ; this.props.navigation.navigate({routeName:"home"})})
-                 .catch(err=>alert("something went wrong"))
+                 .catch(err=>alert(err))
       }
      handleRegister = ()=>{
         this.setState({isRegister:true})
