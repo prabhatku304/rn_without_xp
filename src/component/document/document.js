@@ -67,9 +67,15 @@ const styles = StyleSheet.create({
         justifyContent:"space-around"
     },
     upload:{
-
+        borderColor:"black",
+        borderWidth:1,
+        borderRadius:5,
+        height:30,
+        width:180,
+        alignItems:"center"
     },
     upload_text:{
+        padding:4,
         letterSpacing:1,
     }
 })
