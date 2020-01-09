@@ -17,7 +17,7 @@ class Document extends React.Component{
                     type:[DocumentPicker.types.images]
                 })
                 console.log(response)
-                DocumentAdd(response)
+                this.props.DocumentAdd(response)
                    .then(res=>alert("hello"))
                    .catch(err=>alert(err))
            }catch(err){
@@ -56,4 +56,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default connect(mapStateToProps,{})(Document)
+export default connect(mapStateToProps,{DocumentAdd})(Document)
