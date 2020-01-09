@@ -13,6 +13,6 @@ export const documentReducer = (state={D_Document},action)=>{
                         ...state,
                         document:action.data
                     }
-                default : state;
+                default :return state;               // must be return state otherwise it will error
            }
 }

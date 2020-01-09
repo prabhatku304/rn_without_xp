@@ -46,9 +46,9 @@ class Document extends React.Component{
 
 Document.navigationOptions = (navProps)=>{
     return{
-        headerTitile:"Document",
+        headerTitle:"Document",
         headerLeft: <HeaderButtons HeaderButtonComponent={Header}>
-             <Item title="bar" iconName="ios-menu" onPress={()=>navProps.navigate.toggleDrawer()} />
+             <Item title="bar" iconName="ios-menu" onPress={()=>navProps.navigation.toggleDrawer()} />
         </HeaderButtons>
 
     }
