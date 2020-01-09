@@ -36,15 +36,19 @@ class Document extends React.Component{
 
         }
         handleSubmit = ()=>{ 
-            this.setState({modal:false})
-                // this.props.DocumentAdd(this.state.url,this.props.id)
-                // .then(res=>{
-                //     this.setState({modal:false});
-                //     alert("success")
-                // })
-                // .catch(err=>{
-                //     this.setState({modal:false})
-                //     alert(err)})
+           return new Promise((resolve,reject)=>{
+            this.props.DocumentAdd(this.state.url,this.props.id)
+            .then(res=>{
+                this.setState({modal:false});
+                alert("success")
+                resolve()
+            })
+            .catch(err=>{
+                this.setState({modal:false})
+                alert(err)})
+                reject(err)
+           })
+                
         }
 
         render(){

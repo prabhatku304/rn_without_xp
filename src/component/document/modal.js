@@ -1,18 +1,22 @@
 import React ,{Component} from 'react';
-import {View,Text,Image,TouchableOpacity,StyleSheet,Button} from 'react-native';
+import {View,Text,Image,TouchableOpacity,StyleSheet,Button,ActivityIndicator} from 'react-native';
 import Modal from 'react-native-modal'
 
 class DocumentModal extends Component{
     constructor(props){
         super(props);
         this.state={
-            isOpen:true
+            isOpen:true,
+            active:false
         }
     }
 
     handleSubmit = ()=>{
-        this.props.handleSubmit();
-        this.setState({isOpen:false})
+        this.setState({active:true})
+        this.props.handleSubmit()
+           .then(res=>{this.setState({isOpen:false,active:false})})
+           .catch(err=>console.log(err))
+        
     }
     close=()=>{
         this.setState({isOpen:false})
@@ -24,21 +28,25 @@ class DocumentModal extends Component{
     render(){
         console.log(this.props.url.uri)
         return(
-          <View>
+          <View >
             <Modal
            
             isVisible={this.state.isOpen}
            
-           onBackdropPress={this.close}
            swipeDirection={ ['right']}
            style={styles.container}
             > 
            
                 <Image source={{uri:this.props.url.uri}} style={{height:200,width:200,borderRadius:5}}  />
-               
+               {this.state.active ? (<ActivityIndicator size="large" color="#00ff00" />):(null)}
             
-             <Button title="Upload" onPress={this.handleSubmit} style={styles.button} />
-            
+             <Button title="Upload"  style={styles.button_sub} color="#535c68"
+                  touchSoundDisabled={false}
+                 onPress={this.handleSubmit}
+             />
+            <TouchableOpacity>
+                <Text>Upload</Text>
+            </TouchableOpacity>
             </Modal>
             </View>
         )
@@ -46,15 +54,16 @@ class DocumentModal extends Component{
 }
 const styles = StyleSheet.create({
     container:{
-       
+        flex:1,
         justifyContent:"flex-end",
         alignItems:"center",
-        justifyContent:"space-evenly"
+        justifyContent:"space-evenly",
+        
        
     },
     button_sub:{
-        height:200,
-        width:200
+    
+        
     }
 })
 
