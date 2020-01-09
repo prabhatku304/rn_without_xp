@@ -24,11 +24,7 @@ class Document extends React.Component{
                     type:[DocumentPicker.types.images]
                 })
                 console.log(response)
-                this.setState({modal:true,url:response.uri})
-                
-                this.props.DocumentAdd(response)
-                   .then(res=>alert("hello"))
-                   .catch(err=>alert(err))
+                this.setState({modal:true,url:response})
            }catch(err){
                if(DocumentPicker.isCancel(err)){
 
@@ -38,15 +34,17 @@ class Document extends React.Component{
            }
 
         }
-        handleSubmit = ()=>{
-
+        handleSubmit = ()=>{ 
+                this.props.DocumentAdd(this.state.url)
+                .then(res=>alert("hello"))
+                .catch(err=>alert(err))
         }
 
         render(){
             return(
                 <View style={styles.container}>
                     
-                    {this.state.modal ? (<DocumentModal uri={this.state.uri}/>) :(
+                    {this.state.modal ? (<DocumentModal url={this.state.url} handleSubmit ={this.handleSubmit}/>) :(
                     <TouchableOpacity onPress={this.handleModal} style={styles.upload}>
                         <Text style={styles.upload_text}>Upoad a Document</Text>
                     </TouchableOpacity>)}
