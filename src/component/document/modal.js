@@ -1,45 +1,61 @@
 import React ,{Component} from 'react';
-import {View,Modal,Text,Image,TouchableOpacity,StyleSheet} from 'react-native'
+import {View,Text,Image,TouchableOpacity,StyleSheet,Button} from 'react-native';
+import Modal from 'react-native-modal'
 
 class DocumentModal extends Component{
     constructor(props){
         super(props);
         this.state={
-            isOpen:false
+            isOpen:true
         }
     }
 
     handleSubmit = ()=>{
         this.props.handleSubmit();
+        this.setState({isOpen:false})
     }
     close=()=>{
         this.setState({isOpen:false})
     }
-    componentWillMount(){
+    show=()=>{
         this.setState({isOpen:true})
     }
-
+    
     render(){
         console.log(this.props.url.uri)
         return(
-            <View>
+          <View>
             <Modal
-            animationType="slide"
-            visible={this.state.isOpen}
-            onShow={this.show}
-            onRequestClose={this.close}
-            transparent={false}
-            >
-                <Image source={{uri:this.props.url.uri}}   />
-                <TouchableOpacity onPress={this.handleSubmit}>
-                    <Text>Submit</Text>
-                </TouchableOpacity>
-             <Text>Hello</Text>
+           
+            isVisible={this.state.isOpen}
+           
+           onBackdropPress={this.close}
+           swipeDirection={ ['right']}
+           style={styles.container}
+            > 
+           
+                <Image source={{uri:this.props.url.uri}} style={{height:200,width:200,borderRadius:5}}  />
+               
+            
+             <Button title="Upload" onPress={this.handleSubmit} style={styles.button} />
+            
             </Modal>
-     
             </View>
         )
     }
 }
+const styles = StyleSheet.create({
+    container:{
+       
+        justifyContent:"flex-end",
+        alignItems:"center",
+        justifyContent:"space-evenly"
+       
+    },
+    button_sub:{
+        height:200,
+        width:200
+    }
+})
 
 export default DocumentModal;

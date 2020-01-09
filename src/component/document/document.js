@@ -19,7 +19,7 @@ class Document extends React.Component{
 
        async handleModal(){
            console.log("hello")
-          
+           this.setState({modal:true})
            try{
                 let response = await DocumentPicker.pick({
                     type:[DocumentPicker.types.images]
@@ -36,14 +36,15 @@ class Document extends React.Component{
 
         }
         handleSubmit = ()=>{ 
-                this.props.DocumentAdd(this.state.url)
-                .then(res=>{
-                    this.setState({modal:false});
-                    alert("success")
-                })
-                .catch(err=>{
-                    this.setState({modal:false})
-                    alert(err)})
+            this.setState({modal:false})
+                // this.props.DocumentAdd(this.state.url,this.props.id)
+                // .then(res=>{
+                //     this.setState({modal:false});
+                //     alert("success")
+                // })
+                // .catch(err=>{
+                //     this.setState({modal:false})
+                //     alert(err)})
         }
 
         render(){
