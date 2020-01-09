@@ -2,7 +2,7 @@ import React from 'react';
 import {View,TouchableOpacity,Text,Button,StyleSheet} from 'react-native';
 import DocumentPicker from 'react-native-document-picker';
 import { connect } from 'react-redux';
-
+import {DocumentAdd} from '../../store/action/document/document'
 
 class Document extends React.Component{
         constructor(props){
@@ -17,6 +17,9 @@ class Document extends React.Component{
                     type:[DocumentPicker.types.images]
                 })
                 console.log(response)
+                DocumentAdd(response)
+                   .then(res=>alert("hello"))
+                   .catch(err=>alert(err))
            }catch(err){
                if(DocumentPicker.isCancel(err)){
 
