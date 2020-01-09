@@ -3,6 +3,8 @@ import {View,TouchableOpacity,Text,Button,StyleSheet} from 'react-native';
 import DocumentPicker from 'react-native-document-picker';
 import { connect } from 'react-redux';
 import {DocumentAdd} from '../../store/action/document/document'
+import {HeaderButtons,Item} from 'react-navigation-header-buttons'
+import Header from '../../container/button'
 
 class Document extends React.Component{
         constructor(props){
@@ -33,13 +35,23 @@ class Document extends React.Component{
         render(){
             return(
                 <View style={styles.container}>
-                    <TouchableOpacity onPress={this.handleSubmit}>
-                        <Text>Upoad a Document</Text>
+                    <TouchableOpacity onPress={this.handleSubmit} style={styles.upload}>
+                        <Text style={styles.upload_text}>Upoad a Document</Text>
                     </TouchableOpacity>
                 </View>
 
             )
         }
+}
+
+Document.navigationOptions = (navProps)=>{
+    return{
+        headerTitile:"Document",
+        headerLeft: <HeaderButtons HeaderButtonComponent={Header}>
+             <Item title="bar" iconName="ios-menu" onPress={()=>navProps.navigate.toggleDrawer()} />
+        </HeaderButtons>
+
+    }
 }
 
 function mapStateToProps(state){
@@ -53,6 +65,12 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems:"center",
         justifyContent:"space-around"
+    },
+    upload:{
+
+    },
+    upload_text:{
+        letterSpacing:1,
     }
 })
 

@@ -41,6 +41,10 @@ const Tabconfig = {
        
 }
 
+const DocumentNew = createStackNavigator({
+       document:{screen:DocumentId}
+})
+
 const BottomNavigator = (Platform.OS==='android'?createMaterialBottomTabNavigator(Tabconfig,{
        activeColor:'white',
        shifting:true
@@ -64,7 +68,7 @@ const DrawerNavigator = createDrawerNavigator({
                 navigationOptions:{
                      drawerIcon:(tab)=><Ionicons name="ios-paper" size={25} color={tab.tintColor} />
                 }},
-       Document:{screen:DocumentId,
+       Document:{screen:DocumentNew,
                 navigationOptions:{
                        drawerIcon:(tab)=><Ionicons name="ios-document" size={25} color={tab.tintColor} />
                 } 

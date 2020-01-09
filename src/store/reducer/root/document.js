@@ -1,4 +1,7 @@
 
+const D_Document={
+    document:{}
+}
 
 
 
