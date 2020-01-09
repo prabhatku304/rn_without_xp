@@ -1,5 +1,5 @@
 import React ,{Component} from 'react';
-import {View,Modal,Text} from 'react-native'
+import {View,Modal,Text,Image} from 'react-native'
 
 class DocumentModal extends Component{
     constructor(props){
@@ -12,13 +12,16 @@ class DocumentModal extends Component{
 
     render(){
         return(
+            <View>
             <Modal
             animationType="slide"
             visible={this.state.isOpen}
             onRequestClose={this.close}
             >
+                <Image source={{uri:this.props.uri}}  />
              <Text>Hello</Text>
             </Modal>
+            </View>
         )
     }
 }

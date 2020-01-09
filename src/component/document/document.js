@@ -5,20 +5,27 @@ import { connect } from 'react-redux';
 import {DocumentAdd} from '../../store/action/document/document'
 import {HeaderButtons,Item} from 'react-navigation-header-buttons'
 import Header from '../../container/button'
+import DocumentModal from './modal';
 
 class Document extends React.Component{
         constructor(props){
             super(props);
-         this.handleSubmit = this.handleSubmit.bind(this);
+            this.state={
+                modal:false,
+                url:{}
+            }
+         this.handleModal = this.handleModal.bind(this);
         }
 
-       async handleSubmit(){
+       async handleModal(){
            console.log("hello")
            try{
                 let response = await DocumentPicker.pick({
                     type:[DocumentPicker.types.images]
                 })
                 console.log(response)
+                this.setState({modal:true,url:response.uri})
+                
                 this.props.DocumentAdd(response)
                    .then(res=>alert("hello"))
                    .catch(err=>alert(err))
@@ -31,13 +38,18 @@ class Document extends React.Component{
            }
 
         }
+        handleSubmit = ()=>{
+
+        }
 
         render(){
             return(
                 <View style={styles.container}>
-                    <TouchableOpacity onPress={this.handleSubmit} style={styles.upload}>
+                    
+                    {this.state.modal ? (<DocumentModal uri={this.state.uri}/>) :(
+                    <TouchableOpacity onPress={this.handleModal} style={styles.upload}>
                         <Text style={styles.upload_text}>Upoad a Document</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity>)}
                 </View>
 
             )
