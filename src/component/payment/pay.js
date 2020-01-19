@@ -3,7 +3,7 @@
 
 import stripe from 'tipsi-stripe'
 stripe.setOptions({
-    publishableKey:"pk_live_6eX2vt1vstuqozy0t1RAmtpO",
+    publishableKey:"pk_test_EcDcCoAGVRMU3RPq8ZY6Xyri",
     androidPayMode:"production"
 })
 import React, { PureComponent } from 'react'
@@ -39,6 +39,7 @@ export default class CardFormScreen extends PureComponent {
   handleCardPayPress = async () => {
     try {
       this.setState({ loading: true, token: null })
+      
       let token = await stripe.paymentRequestWithCardForm({
        
             card:{name: 'prabhat kumar',
@@ -59,6 +60,7 @@ export default class CardFormScreen extends PureComponent {
     //    token.card.currency="INR"
     //    token.card.number= '4591150108415332'
        console.log(token)
+      
       this.setState({ loading: false, token })
     } catch (error) {
       this.setState({ loading: false })

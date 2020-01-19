@@ -1,5 +1,5 @@
 import React ,{Component} from 'react';
-import {View,Button,Image,Text,StyleSheet} from 'react-native';
+import {View,Button,Image,Text,StyleSheet,ImageBackground} from 'react-native';
 import Axios from 'axios';
 import {connect} from 'react-redux';
 import {HeaderButtons,Item} from 'react-navigation-header-buttons';
@@ -25,6 +25,7 @@ class Profile extends Component{
         let user = this.state.user
         
         return(
+            <ImageBackground source={require('./profile.png')} style={{width:"100%",height:"100%"}}>
             <View style={styles.container}>
                 <Image source={{uri:"https://owips.com/sites/default/files/clipart/profile-clipart/230017/profile-clipart-dummy-230017-3860031.png"}} style={styles.profileImage}/>
                 <View style={styles.profileStyle}>
@@ -34,6 +35,7 @@ class Profile extends Component{
                 <Text style={styles.mobileStyle}>mobile : </Text>
                 </View>
             </View>
+            </ImageBackground>
         )
     }
 }

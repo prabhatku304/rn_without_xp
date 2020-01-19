@@ -7,7 +7,7 @@ export const document = (data)=>{
     }
 }
 
-export const DocumentAdd = (file)=>{
+export const DocumentAdd = (file,id)=>{
     return dispatch=>{
     return new Promise((resolve,reject)=>{
          const formData = new FormData();
@@ -17,7 +17,7 @@ export const DocumentAdd = (file)=>{
                  'content-type' : 'multipart/form-data'
              }
          }
-         Axios.post('https://renter-server.herokuapp.com/api/5e0b9eb31a5e3c001779fe77/upload',formData,config)
+         Axios.post(`https://renter-server.herokuapp.com/api/${id}/upload`,formData,config)
                .then(res=>{console.log("sucess")
                      dispatch(document(res.data))
                      resolve();

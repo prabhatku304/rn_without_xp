@@ -50,12 +50,15 @@ class Document extends React.Component{
            })
                 
         }
+        handle = ()=>{
+            this.setState({modal:false})
+        }
 
         render(){
             return(
                 <View style={styles.container}>
                     
-                    {this.state.modal ? (<DocumentModal url={this.state.url} handleSubmit ={this.handleSubmit}/>) :(
+                    {this.state.modal ? (<DocumentModal handleModal={this.handle} url={this.state.url} handleSubmit ={this.handleSubmit}/>) :(
                     <TouchableOpacity onPress={this.handleModal} style={styles.upload}>
                         <Text style={styles.upload_text}>Upoad a Document</Text>
                     </TouchableOpacity>)}

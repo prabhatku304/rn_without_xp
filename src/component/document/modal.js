@@ -1,7 +1,7 @@
 import React ,{Component} from 'react';
 import {View,Text,Image,TouchableOpacity,StyleSheet,Button,ActivityIndicator} from 'react-native';
 import Modal from 'react-native-modal';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import {HeaderButtons,Item} from 'react-navigation-header-buttons'
 import Header from '../../container/button'
 
@@ -23,6 +23,7 @@ class DocumentModal extends Component{
     }
     close=()=>{
         this.setState({isOpen:false})
+        this.props.handleModal()
     }
     show=()=>{
         this.setState({isOpen:true})
@@ -39,7 +40,9 @@ class DocumentModal extends Component{
            swipeDirection={ ['right']}
            style={styles.container}
             > 
-            <Ionicons name="ios-menu" size={25}/>
+            <HeaderButtons HeaderButtonComponent={Header}  >
+                <Item iconName="ios-close-circle-outline" title="cross" onPress={this.close} style={{marginLeft:-120}}/>
+            </HeaderButtons>
                 <Image source={{uri:this.props.url.uri}} style={{height:200,width:200,borderRadius:5}}  />
                {this.state.active ? (<ActivityIndicator size="large" color="#00ff00" />):(null)}
             
@@ -47,9 +50,7 @@ class DocumentModal extends Component{
                   touchSoundDisabled={false}
                  onPress={this.handleSubmit}
              />
-            <TouchableOpacity style={styles.button_sub} >
-                <Text style={{}}></Text>
-            </TouchableOpacity>
+            
             </Modal>
             </View>
         )
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
          backgroundColor:"#535c68",
         height:30,
         width:60,
-       conte
+       
     }
 })
 
