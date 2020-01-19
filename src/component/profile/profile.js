@@ -31,8 +31,9 @@ class Profile extends Component{
            
                 <Text style={{...styles.usernameStyle,...styles.textStyle}}>Username: {user.username}</Text>
                 <Text style={{...styles.emailStyle,...styles.textStyle}}>Email: </Text>
-                <Text style={styles.roomStyle}>Room: 8</Text>
-                <Text style={styles.mobileStyle}>mobile: </Text>
+                
+                <Text style={{...styles.mobileStyle,...styles.textStyle}}>mobile: </Text>
+                <Text style={{...styles.roomStyle,...styles.textStyle}}>Room: 8</Text>
             
             </View>
             </ImageBackground>
