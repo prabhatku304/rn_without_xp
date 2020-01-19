@@ -28,12 +28,12 @@ class Profile extends Component{
             <ImageBackground source={require('./profile.png')} style={{width:"100%",height:"100%"}}>
             <View style={styles.container}>
                 <Image source={{uri:"https://owips.com/sites/default/files/clipart/profile-clipart/230017/profile-clipart-dummy-230017-3860031.png"}} style={styles.profileImage}/>
-               
+           
                 <Text style={styles.usernameStyle}>Username : {user.username}</Text>
                 <Text style={styles.emailStyle}>Email : {user.email}</Text>
                 <Text style={styles.roomStyle}>Room no. : 8</Text>
                 <Text style={styles.mobileStyle}>mobile : </Text>
-               
+            
             </View>
             </ImageBackground>
         )
@@ -72,15 +72,32 @@ const styles = StyleSheet.create({
             width: 110,
             height: 113,
             left: 153,
-            top: calc(50% - 113/2 - 203.5),
+            top: 40.38,
             
             // boxShadow: inset 0 4 4 rgba(0, 0, 0, 0.25)
 
           },usernameStyle:{
-              color:"blue",
-              fontSize:20,
-              paddingLeft:10,
-              letterSpacing:1
+            position: "absolute",
+            width: 363,
+            height: 56,
+            left: 20,
+            top: 318,
+            
+            fontFamily: "Roboto",
+            fontStyle: "normal",
+            fontWeight: "normal",
+            fontSize: 24,
+            lineHeight: 28,
+            
+            color: "#FFFFFF",
+            borderRadius:1,
+            borderColor:"#CCBEBE",
+            borderWidth:0,
+            borderStyle:"solid",
+            textShadowColor:"rgba(0, 0, 0, 0.25)",
+            textShadowOffset:{height:4,width:4},
+            textShadowRadius:0,
+            // textShadow:" 0 4 4 rgba(0, 0, 0, 0.25)"
           },
           emailStyle:{
               color:"#323433",
