@@ -72,8 +72,11 @@ const styles = StyleSheet.create({
             position: "absolute",
             width: 110,
             height: 113,
-            left: 153,
+            left: 128,
             top: 40.38,
+            shadowColor:"rgba(0, 0, 0, 0.25)",
+            shadowOffset:{width:4,height:4},
+            shadowOpacity:0,
             
             // boxShadow: inset 0 4 4 rgba(0, 0, 0, 0.25)
 
@@ -81,23 +84,24 @@ const styles = StyleSheet.create({
             fontFamily: "Roboto",
             fontStyle: "normal",
             fontWeight: "normal",
-            fontSize: 24,
+            fontSize: 26,
             lineHeight: 28,
+            letterSpacing:1,
             
             color: "#FFFFFF",
             borderRadius:1,
             borderColor:"#CCBEBE",
             borderWidth:0,
             borderStyle:"solid",
-            textShadowColor:"rgba(0, 0, 0, 0.25)",
-            textShadowOffset:{height:4,width:4},
-            textShadowRadius:0,
+            textShadowColor:"black",
+            textShadowOffset:{height:8,width:5},
+            textShadowRadius:10
           }
           ,usernameStyle:{
             position: "absolute",
             width: 363,
             height: 56,
-            left: 20,
+            left: 10,
             top: 258,
         
           },
@@ -111,16 +115,18 @@ const styles = StyleSheet.create({
             
           },
           roomStyle:{
-            color:"#323433",
-            fontSize:20,
-            paddingLeft:13,
-            letterSpacing:1,
+            position: "absolute",
+            width: 353,
+            height: 48,
+            left: 57,
+            top: 438,
           },
           mobileStyle:{
-            color:"#323433",
-            fontSize:20,
-            paddingLeft:37,
-            letterSpacing:1,
+              position: "absolute",
+                width: 353,
+                height: 48,
+                left: 49,
+                top: 378,
           }
 })
 
