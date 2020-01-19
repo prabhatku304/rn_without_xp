@@ -29,10 +29,10 @@ class Profile extends Component{
             <View style={styles.container}>
                 <Image source={{uri:"https://owips.com/sites/default/files/clipart/profile-clipart/230017/profile-clipart-dummy-230017-3860031.png"}} style={styles.profileImage}/>
            
-                <Text style={styles.usernameStyle}>Username : {user.username}</Text>
-                <Text style={styles.emailStyle}>Email : {user.email}</Text>
-                <Text style={styles.roomStyle}>Room no. : 8</Text>
-                <Text style={styles.mobileStyle}>mobile : </Text>
+                <Text style={{...styles.usernameStyle,...styles.textStyle}}>Username: {user.username}</Text>
+                <Text style={{...styles.emailStyle,...styles.textStyle}}>Email: </Text>
+                <Text style={styles.roomStyle}>Room: 8</Text>
+                <Text style={styles.mobileStyle}>mobile: </Text>
             
             </View>
             </ImageBackground>
@@ -76,13 +76,7 @@ const styles = StyleSheet.create({
             
             // boxShadow: inset 0 4 4 rgba(0, 0, 0, 0.25)
 
-          },usernameStyle:{
-            position: "absolute",
-            width: 363,
-            height: 56,
-            left: 20,
-            top: 318,
-            
+          },textStyle:{
             fontFamily: "Roboto",
             fontStyle: "normal",
             fontWeight: "normal",
@@ -97,13 +91,23 @@ const styles = StyleSheet.create({
             textShadowColor:"rgba(0, 0, 0, 0.25)",
             textShadowOffset:{height:4,width:4},
             textShadowRadius:0,
-            // textShadow:" 0 4 4 rgba(0, 0, 0, 0.25)"
+          }
+          ,usernameStyle:{
+            position: "absolute",
+            width: 363,
+            height: 56,
+            left: 20,
+            top: 258,
+        
           },
           emailStyle:{
-              color:"#323433",
-              fontSize:20,
-              paddingLeft:50,
-              letterSpacing:1,
+            position: "absolute",
+            width: 353,
+            height: 48,
+            left: 65,
+            top: 317,
+            
+            
           },
           roomStyle:{
             color:"#323433",
