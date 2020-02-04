@@ -1,5 +1,5 @@
 import React , {Component} from 'react';
-import {View,Button,Textm,StyleSheet,TouchableOpacity} from 'react-native';
+import {View,Button,Text,StyleSheet,TouchableOpacity} from 'react-native';
 import RazorPayCheckout from 'react-native-razorpay'
 
 class  RazorPay extends Component{
@@ -39,9 +39,9 @@ class  RazorPay extends Component{
 
     render(){
         return(
-            <View>
-                <TouchableOpacity >
-
+            <View style={styles.container}>
+                <TouchableOpacity onPress={()=>this.getOption}>
+                  <Text style={styles.text}>Pay</Text>
                 </TouchableOpacity>
             </View>
         )
@@ -50,6 +50,15 @@ class  RazorPay extends Component{
 
 const styles =  StyleSheet.create({
             container:{
-
+                flex:1,
+                justifyContent:"center",
+                alignItems:"center",
+                backgroundColor:"#F5FCFF"
+            },
+            text:{
+                fontSize:20,
+                fontWeight:"bold"
             }
 })
+
+export {RazorPay};

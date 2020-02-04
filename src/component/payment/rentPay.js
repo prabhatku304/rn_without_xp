@@ -6,6 +6,7 @@ import DateTimePicker from 'react-native-modal-datetime-picker';
 import {connect} from 'react-redux';
 import {Ionicons} from '@expo/vector-icons'
 import CardFormScreen from './pay';
+import { RazorPay } from '../RazorPay/RazorPay';
 class RentPay extends Component{
     constructor(props){
         super(props);
@@ -55,8 +56,9 @@ class RentPay extends Component{
      
       if(this.state.isPay){
         return(
-          <CardFormScreen />
-        )
+          // <CardFormScreen />
+          <RazorPay />
+          )
       }else{
         return(  
             <View style={styles.container}>
