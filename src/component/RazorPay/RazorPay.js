@@ -1,6 +1,6 @@
 import React , {Component} from 'react';
 import {View,Button,Text,StyleSheet,TouchableOpacity} from 'react-native';
-import RazorPayCheckout from 'react-native-razorpay'
+import RazorpayCheckout from 'react-native-razorpay'
 
 class  RazorPay extends Component{
     constructor(props){
@@ -9,7 +9,7 @@ class  RazorPay extends Component{
     }
 
     getOption = ()=>{
-        const options = {
+        let  options = {
             description: 'Credits towards consultation',
           image: 'https://i.imgur.com/3g7nmJC.png',
           currency: 'INR',
@@ -27,11 +27,13 @@ class  RazorPay extends Component{
           theme: {color: '#F37254'}
         } 
 
-        RazorPayCheckout.open(options)
-             .then(data=>alert(`success: ${data.razorpay_payment_id}`))
-              .catch(err=>alert(err))
+        RazorpayCheckout.open(options)
+             .then(data=>alert(`success: ${data}`))
+              .catch(err=>{
+                 console.log(err.description)  
+                alert(err)})
         
-        RazorPayCheckout.onExternalWalletSelection(data=>{
+        RazorpayCheckout.onExternalWalletSelection(data=>{
             alert(`external : ${data.external_wallet}`)
         })
 
@@ -40,7 +42,7 @@ class  RazorPay extends Component{
     render(){
         return(
             <View style={styles.container}>
-                <TouchableOpacity onPress={()=>this.getOption}>
+                <TouchableOpacity onPress={this.getOption}>
                   <Text style={styles.text}>Pay</Text>
                 </TouchableOpacity>
             </View>
