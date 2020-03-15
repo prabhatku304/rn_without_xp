@@ -32,7 +32,7 @@ const ChatRoom =(props)=>{
           },
         },
       )
-    },[newMessage,messages])
+    },[])
   
     // componentWillMount(){
           

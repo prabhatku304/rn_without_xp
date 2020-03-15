@@ -89,7 +89,7 @@ const DrawerNavigator = createDrawerNavigator({
 })
 
 const SwitchNavigator = createSwitchNavigator({
-       
+      
        home:DrawerNavigator,
        login:Login,
        

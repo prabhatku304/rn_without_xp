@@ -4,6 +4,7 @@ import Axios from 'axios';
 import {connect} from 'react-redux';
 import {HeaderButtons,Item} from 'react-navigation-header-buttons';
 import HeaderButton from '../../container/button'
+import * as Animatable from 'react-native-animatable';
 
 class Profile extends Component{
     constructor(props){
@@ -25,10 +26,14 @@ class Profile extends Component{
         let user = this.state.user
         
         return(
+
             <ImageBackground source={require('./profile.png')} style={{width:"100%",height:"100%"}}>
             <View style={styles.container}>
+              <View style={styles.imageProfile}>
+              <Animatable.View animation="pulse" iterationCount={Infinity} direction="alternate">
                 <Image source={{uri:"https://owips.com/sites/default/files/clipart/profile-clipart/230017/profile-clipart-dummy-230017-3860031.png"}} style={styles.profileImage}/>
-           
+              </Animatable.View>
+              </View>
                 <Text style={{...styles.usernameStyle,...styles.textStyle}}>Username: {user.username}</Text>
                 <Text style={{...styles.emailStyle,...styles.textStyle}}>Email: </Text>
                 
@@ -69,18 +74,28 @@ const styles = StyleSheet.create({
 
           },
           profileImage:{
-            position: "absolute",
+           
             width: 110,
             height: 113,
-            left: 128,
-            top: 40.38,
+           
             shadowColor:"rgba(0, 0, 0, 0.25)",
             shadowOffset:{width:4,height:4},
             shadowOpacity:0,
+          
             
             // boxShadow: inset 0 4 4 rgba(0, 0, 0, 0.25)
 
-          },textStyle:{
+          },
+          imageProfile:{
+            overflow:"hidden",
+            borderRadius:150,
+            borderColor:"#bbb",
+            position:"absolute",
+            top:35,
+            left:150
+                      }
+          
+          ,textStyle:{
             fontFamily: "Roboto",
             fontStyle: "normal",
             fontWeight: "normal",
