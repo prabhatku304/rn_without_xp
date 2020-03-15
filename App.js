@@ -3,6 +3,7 @@ import { Platform, StyleSheet, Text, View } from 'react-native';
 import RentNavigation from './src/navigation/navigation/navigation';
 import {Provider} from 'react-redux'
 import storeConfigure from './src/store'
+import { MainContainer } from './src/container/MainContainer';
 
 let store = storeConfigure(); 
 
@@ -10,7 +11,7 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-     <RentNavigation />
+      <MainContainer />
      </Provider>
     );
   }

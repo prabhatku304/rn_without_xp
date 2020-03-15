@@ -3,6 +3,7 @@ package com.renter;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 import com.razorpay.rn.RazorpayPackage;
 import io.github.elyx0.reactnativedocumentpicker.DocumentPickerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -45,6 +46,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new SafeAreaContextPackage(),
             new RazorpayPackage(),
             new DocumentPickerPackage(),
             new VectorIconsPackage(),
