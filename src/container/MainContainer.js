@@ -14,6 +14,7 @@ import Logout from '../component/reduxform/logout';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import DocumentModal from '../component/document/modal';
 import Chat from '../component/chatRoom/chat';
+import { Sequence } from '../component/Test/button';
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const MainContainer = (props)=>{
@@ -34,6 +35,7 @@ const MainContainer = (props)=>{
                 <Drawer.Screen name="pay" component={RentPay} options={{drawerLabel:"Pay",drawerIcon:(tab)=><Ionicons name="ios-wallet" size={25} color={tab.color} />}}/>
                 <Drawer.Screen name="document" component={DocumentModal} options={{drawerLabel:"Document",drawerIcon:(tab)=><Ionicons name="ios-document" size={25} color={tab.color} />}}/>
                 <Drawer.Screen name="chat" component={Chat} options={{drawerLabel:"Chat Room",drawerIcon:(tab)=><Ionicons name="ios-chatboxes" size={25} color={tab.color} />}}/>
+                <Drawer.Screen name="test" component={Sequence} />
                 <Drawer.Screen name="logout" component={Logout} options={{drawerLabel:"Logout",drawerIcon:(tab)=><Ionicons name="ios-log-out" size={25} color={tab.color} />}}/>
 
             </Drawer.Navigator>
