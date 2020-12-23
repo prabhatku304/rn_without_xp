@@ -12,7 +12,7 @@ import { RazorPay } from '../component/RazorPay/RazorPay';
 import RentPay from '../component/payment/rentPay';
 import Logout from '../component/reduxform/logout';
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import DocumentModal from '../component/document/modal';
+import DocumentModal from '../component/document/document';
 import Chat from '../component/chatRoom/chat';
 import { Sequence } from '../component/Test/button';
 const Stack = createStackNavigator();

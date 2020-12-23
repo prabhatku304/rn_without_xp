@@ -6,7 +6,8 @@ const Home = (props)=>{
     return(
            <View style={styles.container}>
                <ScrollView>
-            <Image source={require('./home.jpg')} style={styles.img1}/>
+               <View style={styles.img3}></View>
+            {/* <Image source={require('./home.jpg')} style={styles.img1}/> */}
             <View style={styles.img2}></View>
             <View style={styles.img3}></View>
             <View style={styles.img4}></View>
